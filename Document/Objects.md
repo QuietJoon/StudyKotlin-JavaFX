@@ -18,3 +18,4 @@ Figure out that how to use some features
 
 * Implement File Drag & Drop to get file paths
   * Use JavaFX
+  * Use FXML
