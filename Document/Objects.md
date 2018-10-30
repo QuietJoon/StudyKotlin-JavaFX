@@ -16,6 +16,7 @@ Figure out that how to use some features
 
 ## Objects
 
-* Implement File Drag & Drop to get file paths
+* Get File path info by Drag & Drop with JavFX implementation
   * Use JavaFX
   * Use FXML
+  * Get and show drag & dropped file path info
