@@ -13,11 +13,13 @@ import javafx.scene.input.TransferMode
 Source code comes from http://www.java2s.com/Code/Java/JavaFX/DraganddropfiletoScene.htm
 And converted to Kotlin by IntelliJ
 */
-class Main : Application() {
+class AppMain : Application() {
 
     override fun start(primaryStage: Stage) {
-        val root = Group()
-        val scene = Scene(root, 551.0, 400.0)
+        primaryStage.title = "JavaFX"
+        val fxml = javaClass.getResource("fxml/Main.fxml")
+        val root: Parent = FXMLLoader.load(fxml)
+        val scene = Scene(root)
         scene.onDragOver = EventHandler { event ->
             val db = event.dragboard
             if (db.hasFiles()) {
@@ -44,21 +46,6 @@ class Main : Application() {
         }
 
         primaryStage.scene = scene
-        primaryStage.show()
-    }
-
-}
-
-class AppMain : Application() {
-
-    override fun start(primaryStage: Stage) {
-        primaryStage.title = "JavaFX"
-        val fxml = javaClass.getResource("fxml/Main.fxml")
-        val root: Parent = FXMLLoader.load(fxml)
-        val scene = Scene(root)
-
-        primaryStage.scene = scene
-
         primaryStage.show()
     }
 
