@@ -4,7 +4,7 @@ fun main(args : Array<String>) {
     println("Something other!")
     Application.launch(AppMain().javaClass, *args)
     var count = 0
-    var lcount = 100
+    var lcount = 4
     while (lcount>0) {
         Thread.sleep(10L)
         if (count < 100) {
