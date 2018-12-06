@@ -47,9 +47,13 @@ class AppMain : Application() {
                     println(filePath)
                     if (filePath!=null) {
                         filePathLabel.text = filePath
-                        statusIndicator.fill = Paint.valueOf("Red")
+                        statusIndicator.fill = Paint.valueOf("Green")
                     }
                 }
+            } else {
+                // This seems not to be reached
+                filePathLabel.text = "No File"
+                statusIndicator.fill = Paint.valueOf("Red")
             }
             event.isDropCompleted = success
             event.consume()
