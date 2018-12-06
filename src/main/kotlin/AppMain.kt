@@ -8,6 +8,7 @@ import javafx.stage.Stage
 import javafx.event.EventHandler
 import javafx.scene.Group
 import javafx.scene.input.TransferMode
+import javafx.scene.control.Label
 
 /*
 Source code comes from http://www.java2s.com/Code/Java/JavaFX/DraganddropfiletoScene.htm
@@ -20,6 +21,8 @@ class AppMain : Application() {
         val fxml = javaClass.getResource("fxml/Main.fxml")
         val root: Parent = FXMLLoader.load(fxml)
         val scene = Scene(root)
+        val filePathLabel = root.lookup("#FilePathLabel") as Label
+
         scene.onDragOver = EventHandler { event ->
             val db = event.dragboard
             if (db.hasFiles()) {
@@ -39,6 +42,9 @@ class AppMain : Application() {
                 for (file in db.files) {
                     filePath = file.absolutePath
                     println(filePath)
+                    if (filePath!=null) {
+                        filePathLabel.text = filePath
+                    }
                 }
             }
             event.isDropCompleted = success
