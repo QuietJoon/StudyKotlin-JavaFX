@@ -41,7 +41,7 @@ class AppMain : Application() {
             var success = false
             if (db.hasFiles()) {
                 success = true
-                var filePath: String? = null
+                var filePath: String?
                 for (file in db.files) {
                     filePath = file.absolutePath
                     println(filePath)
