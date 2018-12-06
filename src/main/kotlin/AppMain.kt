@@ -24,6 +24,7 @@ class AppMain : Application() {
         val root: Parent = FXMLLoader.load(fxml)
         val scene = Scene(root)
         val filePathLabel = root.lookup("#FilePathLabel") as Label
+        val filePathesLabel = root.lookup("#FilePathesLabel") as Label
         val statusIndicator = root.lookup("#StatusIndicator") as Rectangle
 
         scene.onDragOver = EventHandler { event ->
@@ -47,9 +48,11 @@ class AppMain : Application() {
                     println(filePath)
                     if (filePath!=null) {
                         filePathLabel.text = filePath
-                        statusIndicator.fill = Paint.valueOf("Green")
                     }
                 }
+                val internalString = db.files.joinToString(separator = "\n")
+                filePathesLabel.text = arrayOf("<\n",internalString,"\n>").joinToString(separator = "")
+                statusIndicator.fill = Paint.valueOf("Green")
             } else {
                 // This seems not to be reached
                 filePathLabel.text = "No File"
