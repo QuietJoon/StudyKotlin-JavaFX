@@ -47,12 +47,6 @@ class Main : Application() {
         primaryStage.show()
     }
 
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            Application.launch(*args)
-        }
-    }
 }
 
 class AppMain : Application() {
