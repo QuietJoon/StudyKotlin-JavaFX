@@ -52,7 +52,11 @@ class AppMain : Application() {
                 }
                 val internalString = db.files.joinToString(separator = "\n")
                 filePathesLabel.text = arrayOf("<\n",internalString,"\n>").joinToString(separator = "")
-                statusIndicator.fill = Paint.valueOf("Green")
+                if (db.files.size == 1) {
+                    statusIndicator.fill = Paint.valueOf("Yellow")
+                } else {
+                    statusIndicator.fill = Paint.valueOf("Green")
+                }
             } else {
                 // This seems not to be reached
                 filePathLabel.text = "No File"
