@@ -58,6 +58,8 @@ class GUITestMain : Application() {
                 } else {
                     statusIndicator.fill = Paint.valueOf("Green")
                 }
+
+                testOpener(db.files.toTypedArray())
             } else {
                 // This seems not to be reached
                 filePathLabel.text = "No File"
