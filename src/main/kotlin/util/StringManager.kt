@@ -5,22 +5,22 @@ import java.io.File
 import directoryDelimiter
 
 fun generateStringFromFileList (strings : List<File>): String {
-    val internalString = strings.map{getFullName(it.toString())}.joinToString(separator = "\n")
+    val internalString = strings.map{it.toString().getFullName()}.joinToString(separator = "\n")
     return arrayOf("<\n", internalString, "\n>").joinToString(separator = "")
 }
 
-fun getFullName(path: String): String {
-    return path.toString().substringAfterLast(directoryDelimiter)
+fun String.getFullName(): String {
+    return this.toString().substringAfterLast(directoryDelimiter)
 }
 
-fun getFileName(path: String): String {
-    return path.toString().substringAfterLast(directoryDelimiter).substringBeforeLast(".")
+fun String.getFileName(): String {
+    return this.toString().substringAfterLast(directoryDelimiter).substringBeforeLast(".")
 }
 
-fun getExtension(path: String): String {
-    return path.toString().substringAfterLast(directoryDelimiter).substringAfterLast(".")
+fun String.getExtension(): String {
+    return this.toString().substringAfterLast(directoryDelimiter).substringAfterLast(".")
 }
 
-fun getDirectory(path: String): String {
-    return path.toString().substringBeforeLast(directoryDelimiter)
+fun String.getDirectory(): String {
+    return this.toString().substringBeforeLast(directoryDelimiter)
 }
