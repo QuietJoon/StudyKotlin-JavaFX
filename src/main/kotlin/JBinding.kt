@@ -19,13 +19,7 @@ fun main(args: Array<String>) {
 }
 
 fun testOpener(files: Array<File>) {
-    try {
-        SevenZip.initSevenZipFromPlatformJAR()
-        println("7-Zip-JBinding library was initialized")
-    } catch (e: SevenZipNativeInitializationException) {
-        e.printStackTrace()
-    }
-
+    
     var randomAccessFile: RandomAccessFile? = null
     var inArchive: IInArchive? = null
     try {
