@@ -30,11 +30,14 @@ fun testOpener(files: Array<File>) {
         // Getting simple interface of the archive inArchive
         val simpleInArchive = inArchive!!.getSimpleInterface()
 
+        println(String.format("Archive Type: %s", inArchive.archiveFormat.toString()))
         // TODO: How to get CRC which is not of item but of archive itself
+        /*
         val archiveCRC = inArchive.getArchiveProperty(PropID.CRC)
         println(String.format("Archive CRC: %08X", archiveCRC))
         val archiveCHECKSUM = inArchive.getArchiveProperty(PropID.CHECKSUM)
         println(String.format("Archive CHECKSUM: %08X", archiveCHECKSUM))
+        */
 
         println("   CRC    |   Size    | Compr.Sz. | Filename")
         println("----------+-----------+-----------+---------")
