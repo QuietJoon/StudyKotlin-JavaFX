@@ -59,7 +59,11 @@ class GUITestMain : Application() {
                     statusIndicator.fill = Paint.valueOf("Green")
                 }
 
-                testOpener(db.files.toTypedArray())
+                try {
+                    testOpener(db.files.toTypedArray())
+                } catch ( e: Exception ){
+                    statusIndicator.fill = Paint.valueOf("Red")
+                }
             } else {
                 // This seems not to be reached
                 filePathLabel.text = "No File"

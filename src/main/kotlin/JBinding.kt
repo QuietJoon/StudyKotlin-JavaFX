@@ -50,7 +50,8 @@ fun testOpener(files: Array<File>) {
                     item.path))
         }
     } catch (e: Exception) {
-        System.err.println("Error occurs: $e")
+        System.err.println(String.format("[Error]<testOpener>: %s", e.toString()))
+        throw e
     } finally {
         if (inArchive != null) {
             try {
