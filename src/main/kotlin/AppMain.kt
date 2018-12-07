@@ -11,6 +11,7 @@ import javafx.scene.input.TransferMode
 import javafx.scene.control.Label
 import javafx.scene.shape.Rectangle
 import javafx.scene.paint.Paint
+import util.generateStringFromFileList
 
 /*
 Source code comes from http://www.java2s.com/Code/Java/JavaFX/DraganddropfiletoScene.htm
@@ -43,15 +44,15 @@ class GUITestMain : Application() {
             if (db.hasFiles()) {
                 success = true
                 var filePath: String?
-                for (file in db.files) {
+                for (file in db.files) { db.files
                     filePath = file.absolutePath
                     println(filePath)
                     if (filePath!=null) {
                         filePathLabel.text = filePath
                     }
                 }
-                val internalString = db.files.joinToString(separator = "\n")
-                filePathesLabel.text = arrayOf("<\n",internalString,"\n>").joinToString(separator = "")
+
+                filePathesLabel.text = generateStringFromFileList(db.files)
                 if (db.files.size == 1) {
                     statusIndicator.fill = Paint.valueOf("Yellow")
                 } else {
