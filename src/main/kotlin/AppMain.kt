@@ -25,7 +25,7 @@ class GUITestMain : Application() {
         val root: Parent = FXMLLoader.load(fxml)
         val scene = Scene(root)
         val filePathLabel = root.lookup("#FilePathLabel") as Label
-        val filePathesLabel = root.lookup("#FilePathesLabel") as Label
+        val filePathsLabel = root.lookup("#FilePathsLabel") as Label
         val statusIndicator = root.lookup("#StatusIndicator") as Rectangle
 
         scene.onDragOver = EventHandler { event ->
@@ -52,7 +52,7 @@ class GUITestMain : Application() {
                     }
                 }
 
-                filePathesLabel.text = generateStringFromFileList(db.files)
+                filePathsLabel.text = generateStringFromFileList(db.files)
                 if (db.files.size == 1) {
                     statusIndicator.fill = Paint.valueOf("Yellow")
                 } else {

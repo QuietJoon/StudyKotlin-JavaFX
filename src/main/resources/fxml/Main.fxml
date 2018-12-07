@@ -8,6 +8,6 @@
    <children>
       <Rectangle fx:id="StatusIndicator" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="100.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
       <Label fx:id="FilePathLabel" layoutX="100.0" layoutY="60.0" text="Nothing" />
-      <Label fx:id="FilePathesLabel" layoutX="100.0" layoutY="80.0" text="[]" />
+      <Label fx:id="FilePathsLabel" layoutX="100.0" layoutY="80.0" text="[]" />
    </children>
 </AnchorPane>
