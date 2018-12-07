@@ -24,3 +24,31 @@ fun String.getExtension(): String {
 fun String.getDirectory(): String {
     return this.toString().substringBeforeLast(directoryDelimiter)
 }
+
+fun String.isArchive(): Boolean {
+    val archiveExts: Array<String> = arrayOf("rar", "zip", "exe")
+    for ( aExt in archiveExts ) {
+        if ( this.getExtension() == aExt ) {
+            return true
+        }
+    }
+    return false
+}
+/*
+  * null -> SingleVolume
+  * 1 -> First Volume
+  * otherwise -> Not single nor first volume
+ */
+fun String.maybePartNumber(): Int? {
+    val maybeNumberString = this.substringAfterLast(".part")
+    println(String.format("<maybePartNumber>: %s",maybeNumberString))
+    return maybeNumberString.toIntOrNull()
+}
+
+fun String.isSingleVolume(): Boolean {
+    return getFileName().maybePartNumber() == null
+}
+
+fun String.isFirstVolume(): Boolean {
+    return getFileName().maybePartNumber() == 1
+}

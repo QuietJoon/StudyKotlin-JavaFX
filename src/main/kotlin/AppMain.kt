@@ -59,10 +59,16 @@ class GUITestMain : Application() {
                     statusIndicator.fill = Paint.valueOf("Green")
                 }
 
-                try {
-                    archiveOpener(db.files.toTypedArray()[0])
-                } catch ( e: Exception ){
-                    statusIndicator.fill = Paint.valueOf("Red")
+                val pathArray = db.files.map{it.toString()}.toTypedArray()
+
+                val firstOrSinglePaths = getFirstOrSingleArchivePaths(pathArray)
+
+                for ( aPath in firstOrSinglePaths ) {
+                    try {
+                        archiveOpener(aPath)
+                    } catch (e: Exception) {
+                        statusIndicator.fill = Paint.valueOf("Red")
+                    }
                 }
             } else {
                 // This seems not to be reached

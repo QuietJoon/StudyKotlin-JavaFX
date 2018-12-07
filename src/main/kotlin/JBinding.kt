@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
 
 }
 
-fun archiveOpener(aFile: File) {
+fun archiveOpener(aFile: String) {
     
     var randomAccessFile: RandomAccessFile? = null
     var inArchive: IInArchive? = null
