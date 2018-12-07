@@ -16,7 +16,7 @@ import javafx.scene.paint.Paint
 Source code comes from http://www.java2s.com/Code/Java/JavaFX/DraganddropfiletoScene.htm
 And converted to Kotlin by IntelliJ
 */
-class AppMain : Application() {
+class GUITestMain : Application() {
 
     override fun start(primaryStage: Stage) {
         primaryStage.title = "JavaFX"

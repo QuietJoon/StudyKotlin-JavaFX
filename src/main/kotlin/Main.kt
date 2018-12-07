@@ -2,7 +2,7 @@ import javafx.application.Application
 
 fun main(args : Array<String>) {
     println("Something other!")
-    Application.launch(AppMain().javaClass, *args)
+    Application.launch(GUITestMain().javaClass, *args)
     var count = 0
     var lcount = 4
     while (lcount>0) {
