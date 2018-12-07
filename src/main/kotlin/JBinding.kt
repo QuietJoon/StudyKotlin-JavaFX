@@ -18,12 +18,12 @@ fun main(args: Array<String>) {
 
 }
 
-fun testOpener(files: Array<File>) {
+fun archiveOpener(aFile: File) {
     
     var randomAccessFile: RandomAccessFile? = null
     var inArchive: IInArchive? = null
     try {
-        randomAccessFile = RandomAccessFile(files[0], "r")
+        randomAccessFile = RandomAccessFile(aFile, "r")
         inArchive = SevenZip.openInArchive(null, // autodetect archive type
                 RandomAccessFileInStream(randomAccessFile))
 

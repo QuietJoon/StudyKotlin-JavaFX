@@ -60,7 +60,7 @@ class GUITestMain : Application() {
                 }
 
                 try {
-                    testOpener(db.files.toTypedArray())
+                    archiveOpener(db.files.toTypedArray()[0])
                 } catch ( e: Exception ){
                     statusIndicator.fill = Paint.valueOf("Red")
                 }
