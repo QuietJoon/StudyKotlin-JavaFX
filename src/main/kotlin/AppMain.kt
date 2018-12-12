@@ -2,15 +2,14 @@ import javafx.application.Application
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
-import javafx.scene.layout.Pane
 import javafx.stage.Stage
 
 import javafx.event.EventHandler
-import javafx.scene.Group
 import javafx.scene.input.TransferMode
 import javafx.scene.control.Label
 import javafx.scene.shape.Rectangle
 import javafx.scene.paint.Paint
+import util.archiveOpener
 import util.generateStringFromFileList
 
 /*

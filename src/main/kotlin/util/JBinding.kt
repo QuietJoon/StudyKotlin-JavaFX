@@ -1,11 +1,10 @@
+package util
+
 import net.sf.sevenzipjbinding.*
-import java.io.File
 import java.io.IOException
 import java.io.RandomAccessFile
 
 import net.sf.sevenzipjbinding.impl.RandomAccessFileInStream
-import net.sf.sevenzipjbinding.simple.ISimpleInArchive
-import net.sf.sevenzipjbinding.simple.ISimpleInArchiveItem
 
 
 fun main(args: Array<String>) {
