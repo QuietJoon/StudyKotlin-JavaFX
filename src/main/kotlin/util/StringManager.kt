@@ -18,7 +18,7 @@ fun String.getFileName(): String {
 }
 
 fun String.getExtension(): String {
-    return this.toString().substringAfterLast(directoryDelimiter).substringAfterLast(".")
+    return this.toString().substringAfterLast(directoryDelimiter).substringAfterLast(".","")
 }
 
 fun String.getDirectory(): String {
@@ -40,7 +40,7 @@ fun String.isArchive(): Boolean {
   * otherwise -> Not single nor first volume
  */
 fun String.maybePartNumber(): Int? {
-    val maybeNumberString = this.substringAfterLast(".part")
+    val maybeNumberString = this.substringAfterLast(".part","")
     println(String.format("<maybePartNumber>: %s",maybeNumberString))
     return maybeNumberString.toIntOrNull()
 }
