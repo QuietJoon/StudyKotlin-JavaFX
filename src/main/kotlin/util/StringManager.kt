@@ -9,21 +9,17 @@ fun generateStringFromFileList (strings : List<File>): String {
     return arrayOf("<\n", internalString, "\n>").joinToString(separator = "")
 }
 
-fun String.getFullName(): String {
-    return this.toString().substringAfterLast(directoryDelimiter)
-}
+fun String.getFullName(): String =
+    this.substringAfterLast(directoryDelimiter)
 
-fun String.getFileName(): String {
-    return this.toString().substringAfterLast(directoryDelimiter).substringBeforeLast(".")
-}
+fun String.getFileName(): String =
+    this.substringAfterLast(directoryDelimiter).substringBeforeLast(".")
 
-fun String.getExtension(): String {
-    return this.toString().substringAfterLast(directoryDelimiter).substringAfterLast(".","")
-}
+fun String.getExtension(): String =
+    this.substringAfterLast(directoryDelimiter).substringAfterLast(".","")
 
-fun String.getDirectory(): String {
-    return this.toString().substringBeforeLast(directoryDelimiter)
-}
+fun String.getDirectory(): String =
+    this.substringBeforeLast(directoryDelimiter)
 
 fun String.isArchive(): Boolean {
     val archiveExts: Array<String> = arrayOf("rar", "zip", "exe")
@@ -45,10 +41,6 @@ fun String.maybePartNumber(): Int? {
     return maybeNumberString.toIntOrNull()
 }
 
-fun String.isSingleVolume(): Boolean {
-    return getFileName().maybePartNumber() == null
-}
+fun String.isSingleVolume(): Boolean = getFileName().maybePartNumber() == null
 
-fun String.isFirstVolume(): Boolean {
-    return getFileName().maybePartNumber() == 1
-}
+fun String.isFirstVolume(): Boolean = getFileName().maybePartNumber() == 1
