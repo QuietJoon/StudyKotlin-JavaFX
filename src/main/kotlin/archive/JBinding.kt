@@ -1,23 +1,24 @@
-package util
+package archive
 
 import net.sf.sevenzipjbinding.*
+import net.sf.sevenzipjbinding.impl.RandomAccessFileInStream
 import java.io.IOException
 import java.io.RandomAccessFile
 
-import net.sf.sevenzipjbinding.impl.RandomAccessFileInStream
 
-
-fun main(args: Array<String>) {
+fun jBindingChecker(): Boolean{
     try {
         SevenZip.initSevenZipFromPlatformJAR()
-        println("7-Zip-JBinding library was initialized")
+        return true
     } catch (e: SevenZipNativeInitializationException) {
+        println("Fail to initialize 7-Zip-JBinding library")
         e.printStackTrace()
+        return false
     }
-
 }
 
 fun archiveOpener(aFile: String) {
+    println("archiveOpener with $aFile")
     
     var randomAccessFile: RandomAccessFile? = null
     var inArchive: IInArchive? = null
@@ -28,6 +29,9 @@ fun archiveOpener(aFile: String) {
 
         // Getting simple interface of the archive inArchive
         val simpleInArchive = inArchive!!.getSimpleInterface()
+        val theSize = simpleInArchive.archiveItems.size
+
+        println("Archive item size: $theSize")
 
         println(String.format("Archive Type: %s", inArchive.archiveFormat.toString()))
         // TODO: How to get CRC which is not of item but of archive itself
