@@ -1,29 +1,25 @@
 import javafx.application.Application
+import javafx.event.EventHandler
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
-import javafx.stage.Stage
-
-import javafx.event.EventHandler
-import javafx.scene.input.TransferMode
 import javafx.scene.control.Label
-import javafx.scene.shape.Rectangle
+import javafx.scene.input.TransferMode
 import javafx.scene.paint.Paint
-import util.archiveOpener
-import util.generateStringFromFileList
+import javafx.scene.shape.Rectangle
+import javafx.stage.Stage
 
 /*
 Source code comes from http://www.java2s.com/Code/Java/JavaFX/DraganddropfiletoScene.htm
 And converted to Kotlin by IntelliJ
 */
-class GUITestMain : Application() {
+class GUI : Application() {
 
     override fun start(primaryStage: Stage) {
-        primaryStage.title = "JavaFX"
+        primaryStage.title = "Study 7-Zip JBinding!"
         val fxml = javaClass.getResource("fxml/Main.fxml")
         val root: Parent = FXMLLoader.load(fxml)
         val scene = Scene(root)
-        val filePathLabel = root.lookup("#FilePathLabel") as Label
         val filePathsLabel = root.lookup("#FilePathsLabel") as Label
         val statusIndicator = root.lookup("#StatusIndicator") as Rectangle
 
@@ -36,50 +32,33 @@ class GUITestMain : Application() {
             }
         }
 
-        // Dropping over surface
         scene.onDragDropped = EventHandler { event ->
             val db = event.dragboard
             var success = false
             if (db.hasFiles()) {
                 success = true
                 var filePath: String?
+
                 for (file in db.files) { db.files
                     filePath = file.absolutePath
                     println(filePath)
-                    if (filePath!=null) {
-                        filePathLabel.text = filePath
-                    }
                 }
 
-                filePathsLabel.text = generateStringFromFileList(db.files)
-                if (db.files.size == 1) {
-                    statusIndicator.fill = Paint.valueOf("Yellow")
-                } else {
-                    statusIndicator.fill = Paint.valueOf("Green")
-                }
+                val firstResult = rawFileAnalyze(db.files)
 
-                val pathArray = db.files.map{it.toString()}.toTypedArray()
+                filePathsLabel.text = firstResult.paths
+                statusIndicator.fill = Paint.valueOf(firstResult.colorName)
 
-                val firstOrSinglePaths = getFirstOrSingleArchivePaths(pathArray)
-
-                for ( aPath in firstOrSinglePaths ) {
-                    try {
-                        archiveOpener(aPath)
-                    } catch (e: Exception) {
-                        statusIndicator.fill = Paint.valueOf("Red")
-                    }
-                }
+                println("End a phase")
             } else {
                 // This seems not to be reached
-                filePathLabel.text = "No File"
+                filePathsLabel.text = "No File"
                 statusIndicator.fill = Paint.valueOf("Red")
             }
             event.isDropCompleted = success
             event.consume()
         }
-
         primaryStage.scene = scene
         primaryStage.show()
     }
-
 }
