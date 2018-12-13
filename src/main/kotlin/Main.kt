@@ -1,8 +1,12 @@
 import javafx.application.Application
 
+import archive.*
+
 fun main(args : Array<String>) {
-    println("Something other!")
-    Application.launch(GUITestMain().javaClass, *args)
+    println("JavaFX")
+    if (jBindingChecker()) Application.launch(GUI().javaClass, *args)
+    println("End")
+
     var count = 0
     var lcount = 4
     while (lcount>0) {
