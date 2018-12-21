@@ -59,8 +59,15 @@ class GUI : Application() {
                 statusIndicator.fill = Paint.valueOf(firstResult.colorName)
 
                 statusIndicator.fill = Paint.valueOf("BLACK")
-                GlobalScope.launch(Dispatchers.JavaFx) {load()}
-                statusIndicator.fill = Paint.valueOf("WHITE")
+                var randomValue: Int? = null
+                GlobalScope.launch(Dispatchers.Main) {
+                    randomValue = loadWrap()
+                }
+                statusIndicator.fill =
+                    if (randomValue!!.rem(2) == 0)
+                         Paint.valueOf("WHITE")
+                    else Paint.valueOf("PINK")
+
 
                 println("End a phase")
             } else {
@@ -74,4 +81,6 @@ class GUI : Application() {
         primaryStage.scene = scene
         primaryStage.show()
     }
+
+    suspend fun loadWrap(): Int = withContext(Dispatchers.Default) { load() }
 }
