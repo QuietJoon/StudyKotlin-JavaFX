@@ -8,7 +8,15 @@ import javafx.scene.input.TransferMode
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Rectangle
 import javafx.stage.Stage
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+
+import kotlinx.coroutines.*
+import kotlinx.coroutines.javafx.*
+
+
 import util.load
+
 
 /*
 Source code comes from http://www.java2s.com/Code/Java/JavaFX/DraganddropfiletoScene.htm
@@ -40,17 +48,19 @@ class GUI : Application() {
                 success = true
                 var filePath: String?
 
+                statusIndicator.fill = Paint.valueOf("GRAY")
                 for (file in db.files) { db.files
                     filePath = file.absolutePath
                     println(filePath)
                 }
-
                 val firstResult = rawFileAnalyze(db.files)
-
-                load()
 
                 filePathsLabel.text = firstResult.paths
                 statusIndicator.fill = Paint.valueOf(firstResult.colorName)
+
+                statusIndicator.fill = Paint.valueOf("BLACK")
+                GlobalScope.launch(Dispatchers.JavaFx) {load()}
+                statusIndicator.fill = Paint.valueOf("WHITE")
 
                 println("End a phase")
             } else {
