@@ -8,6 +8,7 @@ import javafx.scene.input.TransferMode
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Rectangle
 import javafx.stage.Stage
+import util.load
 
 /*
 Source code comes from http://www.java2s.com/Code/Java/JavaFX/DraganddropfiletoScene.htm
@@ -45,6 +46,8 @@ class GUI : Application() {
                 }
 
                 val firstResult = rawFileAnalyze(db.files)
+
+                load()
 
                 filePathsLabel.text = firstResult.paths
                 statusIndicator.fill = Paint.valueOf(firstResult.colorName)
