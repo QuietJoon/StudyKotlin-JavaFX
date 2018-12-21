@@ -59,15 +59,16 @@ class GUI : Application() {
                 statusIndicator.fill = Paint.valueOf(firstResult.colorName)
 
                 statusIndicator.fill = Paint.valueOf("BLACK")
-                var randomValue: Int? = null
+                var randomValue: Int
                 GlobalScope.launch(Dispatchers.Main) {
-                    randomValue = loadWrap()
-                }
-                statusIndicator.fill =
-                    if (randomValue!!.rem(2) == 0)
-                         Paint.valueOf("WHITE")
-                    else Paint.valueOf("PINK")
+                    randomValue = async{load()}.await()
+                    if (randomValue == null) error("Fail to wait")
 
+                    statusIndicator.fill =
+                        if (randomValue!!.rem(2) == 0)
+                            Paint.valueOf("WHITE")
+                        else Paint.valueOf("PINK")
+                }
 
                 println("End a phase")
             } else {
