@@ -1,6 +1,3 @@
-import javafx.beans.property.SimpleBooleanProperty
-import javafx.beans.property.SimpleIntegerProperty
-import javafx.beans.property.SimpleStringProperty
 import javafx.beans.property.*
 
 class Item(isSelected: Boolean, groupID: GroupID, name: String){
@@ -18,37 +15,21 @@ class Item(isSelected: Boolean, groupID: GroupID, name: String){
         this.isSelected = isSelected
     }
 
-    fun nameProperty():StringProperty {
-        return this.name
-    }
+    fun nameProperty():StringProperty = this.name
 
-    fun getName():String {
-        return this.nameProperty().get()
-    }
+    fun getName():String = this.nameProperty().get()
 
-    fun setName(name:String) {
-        this.nameProperty().set(name)
-    }
+    fun setName(name:String) = this.nameProperty().set(name)
 
-    fun groupIDProperty():IntegerProperty {
-        return this.groupID
-    }
+    fun groupIDProperty():IntegerProperty = this.groupID
 
-    fun getGroupID():GroupID {
-        return this.groupIDProperty().get()
-    }
+    fun getGroupID():GroupID = this.groupIDProperty().get()
 
-    fun setGroupID(groupID:GroupID) {
-        this.groupIDProperty().set(groupID)
-    }
+    fun setGroupID(groupID:GroupID) = this.groupIDProperty().set(groupID)
 
-    fun onProperty():BooleanProperty {
-        return this.select
-    }
+    fun onProperty():BooleanProperty = this.select
 
-    override fun toString():String {
-        return getGroupID().toString() + getName()
-    }
+    override fun toString():String = getGroupID().toString() + getName()
 }
 
 typealias GroupID = Int
