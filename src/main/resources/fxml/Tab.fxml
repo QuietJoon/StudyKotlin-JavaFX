@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane prefHeight="800.0" prefWidth="1600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Session #1">
+              <content>
+                  <AnchorPane fx:id="TabSession1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                          <Button layoutX="16.0" layoutY="384.0" mnemonicParsing="false" text="Make New" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
+                          <TableView fx:id="TableView1" layoutX="16.0" layoutY="16.0" prefHeight="313.0" prefWidth="565.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
+                              <columns>
+                                  <TableColumn prefWidth="75.0" text="New" />
+                                  <TableColumn prefWidth="75.0" text="Group ID" />
+                                  <TableColumn prefWidth="75.0" text="FilePath" />
+                              </columns>
+                          </TableView>
+                        <Button layoutX="1543.0" layoutY="731.0" mnemonicParsing="false" text="Go" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0" />
+                      </children>
+                  </AnchorPane>
+              </content>
+          </Tab>
+          <Tab text="Session #2">
+              <content>
+                  <AnchorPane fx:id="TabSession2" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <Rectangle fx:id="StatusIndicator" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="100.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="256.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="16.0" />
+                      <Label fx:id="FilePathsLabel" layoutX="100.0" layoutY="60.0" text="Nothing" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="64.0" />
+                  </AnchorPane>
+              </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
