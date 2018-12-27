@@ -97,7 +97,7 @@ class TAB : Application() {
                 statusIndicator.fill = Paint.valueOf("BLACK")
 
                 var randomValue: Int
-                GlobalScope.launch(Dispatchers.Main) {
+                GlobalScope.launch {
                     randomValue = async{load()}.await()
                     if (randomValue == null) error("Fail to wait")
 
