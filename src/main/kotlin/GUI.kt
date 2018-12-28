@@ -86,7 +86,56 @@ class TAB : Application() {
             event.isDropCompleted = success
             event.consume()
         }
+
+        newButton.setOnAction { event -> handleNew(event,itemTable) }
+        goButton.setOnAction { event -> handleGo(event,itemTable) }
+
         primaryStage.scene = scene
         primaryStage.show()
+    }
+
+    private fun handleNew(e: ActionEvent, itemTable: TableView<Item>) {
+        val groupIDSet: SortedSet<Int> = sortedSetOf()
+
+        for (anItem in itemTable.items) {
+            if (anItem.isSelected)
+                println(anItem.getName())
+            else
+                groupIDSet.add(anItem.getGroupID())
+        }
+        var newID = 0
+        for ( idx in groupIDSet ) {
+            if (newID < idx) break
+            newID++
+        }
+        for (anItem in itemTable.items) {
+            if (anItem.isSelected)
+                anItem.setGroupID(newID)
+            // TODO: [BUG] This does not update GUI
+            anItem.isSelected = false
+        }
+    }
+
+    private fun handleGo(e: ActionEvent, itemTable: TableView<Item>) {
+        val groupIDSet: SortedSet<Int> = sortedSetOf()
+        itemTable.items.forEach {
+            if (it != null)
+                groupIDSet.add(it.getGroupID())
+        }
+
+        while ( groupIDSet.last() != groupIDSet.size - 1) {
+            var smallestGroupID = 0
+            for ( idx in groupIDSet ) {
+                if (smallestGroupID < idx) break
+                smallestGroupID++
+            }
+            val finding = groupIDSet.last()
+            for ( anItem in itemTable.items ) {
+                anItem.setGroupID(smallestGroupID)
+            }
+        }
+
+        for (anItem in itemTable.items)
+            println("${anItem.getName()} ${anItem.getGroupID()}")
     }
 }
