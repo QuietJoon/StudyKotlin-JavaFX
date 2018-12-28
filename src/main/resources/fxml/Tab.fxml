@@ -34,8 +34,8 @@
                                   </TableColumn>
                               </columns>
                           </TableView>
-                          <Button layoutX="16.0" layoutY="384.0" mnemonicParsing="false" text="Make New" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
-                          <Button layoutX="1543.0" layoutY="731.0" mnemonicParsing="false" text="Go" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0" />
+                          <Button fx:id="NewButton" layoutX="16.0" layoutY="384.0" mnemonicParsing="false" text="Make New" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
+                          <Button fx:id="GoButton" layoutX="1543.0" layoutY="731.0" mnemonicParsing="false" text="Go" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0" />
                       </children>
                   </AnchorPane>
               </content>

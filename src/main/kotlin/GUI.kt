@@ -29,6 +29,8 @@ class TAB : Application() {
         val itemTable = root.lookup("#TableView1") as TableView<Item>
         val filePathsLabel = root.lookup("#FilePathsLabel") as Label
         val statusIndicator = root.lookup("#StatusIndicator") as Rectangle
+        val newButton = root.lookup("#NewButton") as Button
+        val goButton = root.lookup("#GoButton") as Button
 
         selectAllCheckBox = CheckBox()
 
