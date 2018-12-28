@@ -44,3 +44,19 @@ fun String.maybePartNumber(): Int? {
 fun String.isSingleVolume(): Boolean = getFileName().maybePartNumber() == null
 
 fun String.isFirstVolume(): Boolean = getFileName().maybePartNumber() == 1
+
+fun processRawFilePath(files: List<File>): List<String> {
+    var firstOrSingle: MutableList<String> = mutableListOf()
+    for ( aPath in files.map{it.toString()}) {
+        if ( aPath.isArchive() ) {
+            // I knew this can be replaced by single if by using `maybePartNumber`
+            // But I want to leave this structure for easy reading
+            if (aPath.isSingleVolume()) {
+                firstOrSingle.add(aPath)
+            } else if (aPath.isFirstVolume()) {
+                firstOrSingle.add(aPath)
+            }
+        }
+    }
+    return firstOrSingle
+}

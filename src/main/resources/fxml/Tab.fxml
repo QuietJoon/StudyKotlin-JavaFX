@@ -4,10 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+
 
 <AnchorPane prefHeight="800.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -18,11 +20,23 @@
                   <AnchorPane fx:id="TabSession1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
                           <Button layoutX="16.0" layoutY="384.0" mnemonicParsing="false" text="Make New" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
-                          <TableView fx:id="TableView1" layoutX="16.0" layoutY="16.0" prefHeight="313.0" prefWidth="565.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
+                          <TableView fx:id="TableView1" editable="true" layoutX="16.0" layoutY="16.0" prefHeight="313.0" prefWidth="565.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
                               <columns>
-                                  <TableColumn prefWidth="75.0" text="New" />
-                                  <TableColumn prefWidth="75.0" text="Group ID" />
-                                  <TableColumn prefWidth="75.0" text="FilePath" />
+                                  <TableColumn minWidth="64.0" text="Check">
+                                      <cellValueFactory>
+                                          <PropertyValueFactory property="Check" />
+                                      </cellValueFactory>
+                                  </TableColumn>
+                                  <TableColumn minWidth="64.0" text="Group ID">
+                                      <cellValueFactory>
+                                          <PropertyValueFactory property="Int" />
+                                      </cellValueFactory>
+                                  </TableColumn>
+                                  <TableColumn prefWidth="256.0" text="Name">
+                                      <cellValueFactory>
+                                          <PropertyValueFactory property="String" />
+                                      </cellValueFactory>
+                                  </TableColumn>
                               </columns>
                           </TableView>
                         <Button layoutX="1543.0" layoutY="731.0" mnemonicParsing="false" text="Go" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0" />
