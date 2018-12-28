@@ -35,6 +35,8 @@ class TAB : Application() {
         val newButton = root.lookup("#NewButton") as Button
         val goButton = root.lookup("#GoButton") as Button
 
+        itemTable.columns[1].style = "-fx-alignment: CENTER-RIGHT;"
+
         selectAllCheckBox = CheckBox()
 
         scene.onDragOver = EventHandler { event ->
