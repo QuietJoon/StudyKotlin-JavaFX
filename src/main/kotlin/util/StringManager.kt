@@ -37,7 +37,6 @@ fun String.isArchive(): Boolean {
  */
 fun String.maybePartNumber(): Int? {
     val maybeNumberString = this.substringAfterLast(".part","")
-    println(String.format("<maybePartNumber>: %s",maybeNumberString))
     return maybeNumberString.toIntOrNull()
 }
 
