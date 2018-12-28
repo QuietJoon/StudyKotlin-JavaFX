@@ -9,7 +9,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
-
+<?import util.CheckBoxColumn?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -19,14 +19,9 @@
               <content>
                   <AnchorPane fx:id="TabSession1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
-                          <Button layoutX="16.0" layoutY="384.0" mnemonicParsing="false" text="Make New" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
                           <TableView fx:id="TableView1" editable="true" layoutX="16.0" layoutY="16.0" prefHeight="313.0" prefWidth="565.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
                               <columns>
-                                  <TableColumn minWidth="64.0" text="Check">
-                                      <cellValueFactory>
-                                          <PropertyValueFactory property="select" />
-                                      </cellValueFactory>
-                                  </TableColumn>
+                                  <CheckBoxColumn minWidth="64.0" text="Check" />
                                   <TableColumn minWidth="64.0" text="Group ID">
                                       <cellValueFactory>
                                           <PropertyValueFactory property="groupID" />
@@ -39,7 +34,8 @@
                                   </TableColumn>
                               </columns>
                           </TableView>
-                        <Button layoutX="1543.0" layoutY="731.0" mnemonicParsing="false" text="Go" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0" />
+                          <Button layoutX="16.0" layoutY="384.0" mnemonicParsing="false" text="Make New" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" />
+                          <Button layoutX="1543.0" layoutY="731.0" mnemonicParsing="false" text="Go" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0" />
                       </children>
                   </AnchorPane>
               </content>

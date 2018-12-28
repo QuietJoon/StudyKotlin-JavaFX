@@ -1,4 +1,5 @@
 import javafx.application.Application
+import javafx.collections.FXCollections
 import javafx.event.EventHandler
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
@@ -57,8 +58,7 @@ class TAB : Application() {
                     anItem
                 }
 
-                val theList = itemTable.items
-                theList.addAll(itemList)
+                itemTable.items = FXCollections.observableArrayList(itemList)
 
 
                 // Session #2
