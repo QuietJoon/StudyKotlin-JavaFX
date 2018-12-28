@@ -1,7 +1,8 @@
-// Copy from https://takeda-san.hatenablog.com/entry/2017/07/25/232840
 package util
 
+// Copy from https://takeda-san.hatenablog.com/entry/2017/07/25/232840
 
+import Item
 import javafx.beans.property.SimpleBooleanProperty
 import javafx.event.Event
 import javafx.scene.control.TableColumn
@@ -10,7 +11,6 @@ import javafx.scene.control.cell.PropertyValueFactory
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
 
-import Item
 
 class CheckBoxColumn : TableColumn<Item, Boolean>() {
     init {
