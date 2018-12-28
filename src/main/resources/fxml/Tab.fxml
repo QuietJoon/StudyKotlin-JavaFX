@@ -24,17 +24,17 @@
                               <columns>
                                   <TableColumn minWidth="64.0" text="Check">
                                       <cellValueFactory>
-                                          <PropertyValueFactory property="Check" />
+                                          <PropertyValueFactory property="select" />
                                       </cellValueFactory>
                                   </TableColumn>
                                   <TableColumn minWidth="64.0" text="Group ID">
                                       <cellValueFactory>
-                                          <PropertyValueFactory property="Int" />
+                                          <PropertyValueFactory property="groupID" />
                                       </cellValueFactory>
                                   </TableColumn>
                                   <TableColumn prefWidth="256.0" text="Name">
                                       <cellValueFactory>
-                                          <PropertyValueFactory property="String" />
+                                          <PropertyValueFactory property="name" />
                                       </cellValueFactory>
                                   </TableColumn>
                               </columns>
