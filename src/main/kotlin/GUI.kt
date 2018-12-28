@@ -56,7 +56,7 @@ class TAB : Application() {
                 // Session #1
                 val itemList = db.files.map {
                     val anItem = Item(false,0,it.toString())
-                    anItem.onProperty().addListener{ ov,old_val,new_val ->
+                    anItem.select.addListener{ ov,old_val,new_val ->
                         println(anItem.getName() + "'s CB status changed from '"
                         + old_val + "' to '" + new_val + "'.")
                     }

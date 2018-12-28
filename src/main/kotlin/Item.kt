@@ -1,13 +1,13 @@
 import javafx.beans.property.*
 
 class Item(isSelected: Boolean, groupID: GroupID, name: String){
-    private val select = SimpleBooleanProperty()
+    val select = SimpleBooleanProperty()
     private val name = SimpleStringProperty()
     private val groupID = SimpleIntegerProperty()
 
     var isSelected:Boolean
-        get() = this.onProperty().get()
-        set(on) = this.onProperty().set(on)
+        get() = select.get()
+        set(on) = select.set(on)
 
     init{
         setGroupID(groupID)
@@ -26,8 +26,6 @@ class Item(isSelected: Boolean, groupID: GroupID, name: String){
     fun getGroupID():GroupID = this.groupIDProperty().get()
 
     fun setGroupID(groupID:GroupID) = this.groupIDProperty().set(groupID)
-
-    fun onProperty():BooleanProperty = this.select
 
     override fun toString():String = getGroupID().toString() + getName()
 }
