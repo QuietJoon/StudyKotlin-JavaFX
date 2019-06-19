@@ -89,7 +89,11 @@ class TAB : Application() {
             event.consume()
         }
 
-        newButton.setOnAction { event -> handleNew(event,itemTable) }
+        newButton.setOnAction { event ->
+            handleNew(event,itemTable)
+            // TODO: Too bad, but works...
+            itemTable.refresh()
+        }
         goButton.setOnAction { event -> handleGo(event,itemTable) }
 
         primaryStage.scene = scene
